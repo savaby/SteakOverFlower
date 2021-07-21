@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-light bg-meat text-white">
+    <div class="container">
+        <a href="{{url_for('index')}}" class="navbar-brand"><b>Steak</b>OverFlower</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                {% if session.get('user_id', None) %}
+                <li class="nav-item"><a href="{{ url_for('question')}}" class="nav-link">Ask</a></li>
+                {% endif %}
+            </ul>
+            <form action="search" class="d-flex ms-auto my-auto" autocomplete="off">
+                <input type="text" name="search" id="" class="form-control">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav">
+                {% if not session.get('user_id', None) %}
+                <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{{ url_for('register')}}" class="nav-link">Register</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{{ url_for('logout')}}" class="nav-link">Logout</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="border my-2 p-4">
+        <div class="d-flex justify-content-between"><a href="{{ url_for('view', question=q.id) }}"> {{ q.title }}</a>
+        </div>
+        <p>{{ q.explanation }}</p>
+        <p class="text-end"><span>asked by <b>{{ q.name }}</b></span></p>
+    </div>
+    <h2>{{ a|count }} Answers</h2>
+    <p><a href="{{ url_for('answer', question=q.id) }}">Answer the question...</a></p>
+    {% for answer in a %}
+    <div class="border my-2 p-4">
+        <p>{{ answer.explanation}}</p>
+        <p class="text-end"><span>answered by <b>{{ answer.name}}</b></span></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

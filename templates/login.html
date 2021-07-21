@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row  justify-content-center">
+        <div class="col-4">
+            <form action="login" method="POST">
+                <div class="form-group">
+                    <label for="name" class="form-label">Login name</label>
+                    <input type="text" name="name" id="" class="form-control">
+                    <span class="text-danger">{{error}}</span>
+                </div>
+                <div class="form-group mt-3 ">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="" class="form-control">
+                </div>
+                <div class="form-group mt-3 text-center">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

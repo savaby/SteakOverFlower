@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        {% for question in questions %}
+        <div class="border my-2 p-4">
+            <div class="d-flex justify-content-between"><a href="{{ url_for('view', question=question.id) }}"> {{ question.title }}</a>
+                <span> {{ question.answers}} answers</span> </div>
+            <p>{{ question.explanation }}</p>
+            <p class="text-end"><span>asked by <b>{{ question.name }}</b></span></p>
+        </div>
+        {% endfor %}
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row  justify-content-center">
+        <div class="col-8">
+            <h1>{{ q.title }}</h1>
+            <p>{{ q.explanation }}</p>
+            <form action="{{ url_for('answer', question=q.id) }}" method="POST">
+                <div class="form-group mt-3 ">
+                    <label for="explanation" class="form-label">Answer</label>
+                    <textarea name="explanation" id="" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <input type="hidden" name="question" value="{{ q.id }}">
+                <div class="form-group mt-3 text-center">
+                    <input type="submit" value="Answer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
